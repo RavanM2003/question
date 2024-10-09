@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Question</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      border: 1px solid #000;
+      border-radius: 5px;
+    }
+
+    #yesButton {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    #noButton {
+      background-color: #f44336;
+      color: white;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      display: none; /* Initially hidden */
+    }
+
+    #lgbtFlag {
+      margin-top: 10px;
+      width: 300px;
+      height: auto;
+      display: none; /* Initially hidden */
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="content">
+    <h1 id="question">Are you GAY?</h1>
+    <div class="buttons">
+      <button id="yesButton">YES</button>
+      <button id="noButton">NO</button>
+    </div>
+    <div id="message">YOU ARE GAY!</div>
+    <img id="lgbtFlag" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Gay_Pride_Flag.svg/255px-Gay_Pride_Flag.svg.png" alt="LGBT Flag">
+  </div>
+
+  <script>
+    const yesButton = document.getElementById('yesButton');
+    const noButton = document.getElementById('noButton');
+    const message = document.getElementById('message');
+    const lgbtFlag = document.getElementById('lgbtFlag');
+    const question = document.getElementById('question');
+    const buttons = document.querySelector('.buttons');
+
+    yesButton.addEventListener('click', function() {
+      // Hide the question and buttons
+      question.style.display = 'none';
+      buttons.style.display = 'none';
+      
+      // Show the message and flag
+      message.style.display = 'block';
+      lgbtFlag.style.display = 'block';
+    });
+    noButton.addEventListener("click", function(){
+        message.innerText="You are not GAY"
+      message.style.display = 'block';
+    })
+    noButton.addEventListener('mouseover', function() {
+      const randomX = Math.random() * (window.innerWidth - noButton.offsetWidth);
+      const randomY = Math.random() * (window.innerHeight - noButton.offsetHeight);
+      
+      noButton.style.position = 'absolute';
+      noButton.style.left = `${randomX}px`;
+      noButton.style.top = `${randomY}px`;
+    });
+  </script>
+</body>
+</html>
